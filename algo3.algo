@@ -1,0 +1,80 @@
+/////////////////////////////////////////////////////////////////////////////
+///////////////////////////// Procedure Solution ////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+PROCEDURE dot_product(VAR v1,v2: ARRAY_OF_INTEGER, ps: INTEGER)
+VAR 
+    i:INTEGER;
+BEGIN
+    FOR i FROM 0 TO v1.length DO
+        ps+=v1[i]*v2[i];
+    END_FOR
+END
+ALGORITHM Dot product
+VAR 
+    tab, v1, v2: ARRAY_OF_INTEGER;
+    ps, n, i: INTEGER := 0;
+BEGIN
+    //Read the size n pair of the array tab
+    REPEAT
+        Write("Enter the size n pair of the array tab : ");
+        Read(n);
+    UNTIL (n%2=0)
+    //Read the vector elements of the array tab
+    FOR i FROM 0 TO n DO
+        Read (tab[i]);
+    END_FOR
+    //Check vectors orthogonality
+    FOR i FROM 0 TO n-1 DO
+        FOR j FROM i+1 TO n DO
+            v1=tab[i];
+            v2=tab[j];
+            dot_product(v1,v2,ps);
+            IF (ps=0) THEN
+                Write(v1 "and" v2 "are orthogonals");
+            ELSE
+                Write(v1 "and" v2 "are not orthogonals");
+            END_IF
+        END_FOR
+    END_FOR
+END
+/////////////////////////////////////////////////////////////////////////////
+///////////////////////////////Function Solution ////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+FUNCTION dot_product(v1,v2: ARRAY_OF_INTEGER):INTEGER
+VAR
+    ps,i : INTEGER :=0;
+BEGIN
+    FOR i FROM 0 TO i<v1.length DO
+        ps+=v1[i]*v2[i];
+    END_FOR
+    return(ps);
+END
+ALGORITHM Dot product
+VAR 
+    tab, v1, v2: ARRAY_OF_INTEGER;
+    ps, n, i: INTEGER;
+BEGIN
+    PS = 0;
+    //Read the size n pair of the array tab
+    REPEAT
+        Write("Enter the size n pair of the array tab : ");
+        Read(n);
+    UNTIL (n%2=0)
+    //Read the vector elements of the array tab
+    FOR i FROM 0 TO n DO
+        Read (tab[i]);
+    END_FOR
+    //Check vectors orthogonality
+    FOR i FROM 0 TO n-1 DO
+        FOR j FROM i+1 TO n DO
+            v1=tab[i];
+            v2=tab[j];
+            ps:=dot_product(V1,V2);
+            IF (ps=0) THEN
+                Write(v1 "and" v2 "are orthogonals");
+            ELSE
+                Write(v1 "and" v2 "are not orthogonals");
+            END_IF
+        END_FOR
+    END_FOR
+END
